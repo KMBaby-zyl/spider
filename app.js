@@ -1,8 +1,9 @@
-var koa = require('koa');
-var app = koa();
+// var koa = require('koa');
+//var app = koa();
+import './spider';
 
-app.use(function *(){
-  this.body = 'Hello World';
-});
+// app.use(function *(){
+//     this.body = 'Hello World';
+// });
 
-app.listen(3000);
+// app.listen(3000);
