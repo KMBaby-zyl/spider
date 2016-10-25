@@ -1,9 +1,10 @@
-// var koa = require('koa');
-//var app = koa();
-import './spider';
+var cSpider  = require('./project/ctrip/spider');
+var king = require('./king/index.js');
 
-// app.use(function *(){
-//     this.body = 'Hello World';
-// });
+var projectId = ctrip;
+var options = {
+    start: 428500,
+    offset: 500
+};
 
-// app.listen(3000);
+king(cSpider, options)
