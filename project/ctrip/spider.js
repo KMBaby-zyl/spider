@@ -34,7 +34,6 @@ function step1(body, href) {
 
 module.exports = function (hotelID, page){
 
-
     var href = '"http://hotels.ctrip.com/hotel/' + hotelID + '.html"';
     var url1 = 'http://hotels.ctrip.com/domestic/cas/oceanball?callback=CASIwflvOlQSYEogvc&_=' + new Date().getTime();
 
@@ -54,10 +53,9 @@ module.exports = function (hotelID, page){
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             var result = step1(body, href);
-            console.log(result);
+            // console.log(result);
             var new_callback = function(authkey) {
                 // console.log(f);
-
                 getCommentList(hotelID, authkey, page);
             }
 

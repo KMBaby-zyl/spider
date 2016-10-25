@@ -1,6 +1,13 @@
+// var co = require('co');
+// var thunkify = require('thunkify');
+// var request = thunkify(require('request'));
+
 var request = require('request');
 
 module.exports = function (hotelID, authKey, page){
+// module.exports = function* (hotelID, authKey, page){
+//     co(function *(){
+
     var page = page || 1;
 
     // 评价接口
@@ -40,4 +47,7 @@ module.exports = function (hotelID, authKey, page){
             return;
         }
     })
+
+    // return r;
+    // })()
 }
