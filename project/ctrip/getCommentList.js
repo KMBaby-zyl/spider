@@ -1,6 +1,7 @@
 var request = require('request');
 
-module.exports = function (hotelID, authKey){
+module.exports = function (hotelID, authKey, page){
+    var page = page || 1;
 
     // 评价接口
     var url = 'http://hotels.ctrip.com/Domestic/tool/AjaxHotelCommentList.aspx?MasterHotelID=' +
@@ -15,7 +16,7 @@ module.exports = function (hotelID, authKey){
                 '-1' + '&userType=' +
                 '-1' + '&productcode=&keyword=&roomName=&orderBy=' +
                 '2' + '&currentPage=' +
-                '4' + '&viewVersion=c&contyped=0&eleven='+
+                page + '&viewVersion=c&contyped=0&eleven='+
                 authKey + '&callback=CASRvunwfTabfcxrq&_=' + new Date().getTime();
 
     request({

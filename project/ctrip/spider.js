@@ -32,7 +32,7 @@ function step1(body, href) {
 }
 
 
-module.exports = function (hotelID){
+module.exports = function (hotelID, page){
 
 
     var href = '"http://hotels.ctrip.com/hotel/' + hotelID + '.html"';
@@ -55,10 +55,10 @@ module.exports = function (hotelID){
         if (!error && response.statusCode == 200) {
             var result = step1(body, href);
             console.log(result);
-            var new_callback = function(f) {
+            var new_callback = function(authkey) {
                 // console.log(f);
 
-                getCommentList(hotelID, f);
+                getCommentList(hotelID, authkey, page);
             }
 
             eval(result);
