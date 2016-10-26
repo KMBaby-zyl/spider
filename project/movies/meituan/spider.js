@@ -1,6 +1,8 @@
 var request = require('request');
-var user_agent = require('../../utils/user_agent.js');
+var user_agent = require('../../../utils/user_agent.js');
 var cheerio = require('cheerio');
+var Movies = require('../../../models').Movies;
+
 var citylist = ['sh'];
 
 
@@ -21,13 +23,16 @@ module.exports = function (){
                 var $ = cheerio.load(body);
                 var list = $('.reco-movieinfo__cover');
                 var movies = [];
-                list.map(function(item){
-                    movies.push({
-                        title: list.find('h3').html(),
-                        des: list.find('span').html(),
-                        href: list.attr('href'),
-                        img: list.find('img').attr('src')
-                    });
+                console.log(list.length);
+                list.map(function(){
+                    var i = {
+                        title: $(this).find('h3').html(),
+                        des: $(this).find('span').html(),
+                        href: $(this).attr('href'),
+                        img: $(this).find('img').attr('src')
+                    };
+                    movies.push(i);
+                    var m = new Movies(i);
                 });
                 return;
         }
