@@ -13,7 +13,6 @@ db.once('open', function() {
     console.log('success connect mongodb');
 });
 
-
 // models
 require('./movies');
 

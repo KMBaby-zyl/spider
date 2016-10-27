@@ -5,7 +5,6 @@ var Movies = require('../../../models').Movies;
 
 var citylist = ['sh'];
 
-
 // 得到美团的所有电影
 module.exports = function (){
 
@@ -28,11 +27,13 @@ module.exports = function (){
                     var i = {
                         title: $(this).find('h3').html(),
                         des: $(this).find('span').html(),
-                        href: $(this).attr('href'),
+                        meituan_url: $(this).attr('href'),
                         img: $(this).find('img').attr('src')
+                        update_at: new Date()
                     };
                     movies.push(i);
                     var m = new Movies(i);
+                    m.save();
                 });
                 return;
         }

@@ -5,10 +5,8 @@ var citylist = ['sh'];
 
 
 // 得到美团的所有价格
-module.exports = function (){
-
-    var url = 'http://' + citylist[0] + '.meituan.com/dianying';
-
+module.exports = function (url){
+    
     request({
         uri: url,
         method: 'GET',
@@ -19,12 +17,13 @@ module.exports = function (){
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             var $ = cheerio.load(body);
-            var list = $('.reco-movieinfo__cover');
-            var movies = [];
-            list.map(function(item){
-                movies.push({
-                    title: list.find('h3').html(),
-                    des: list.find('span').html()
+            var list = $('.J-cinema-item');
+            var cinema = [];
+            list.map(function(){
+                cinema.push({
+                    name: $(this).find('.link--black__greenu').html(),
+                    address: $(this).find('.cinema-info-row__value').html(),
+                    playtime: []
                 });
             });
             return;
