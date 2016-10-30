@@ -18,8 +18,10 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-3": "^6.5.0",
     "babel-runtime": "^5.8.38",
+    "cheerio": "^0.22.0",
     "co": "^4.6.0",
     "koa": "^1.2.4",
+    "mongoose": "^4.6.5",
     "sleep": "^4.0.0",
     "thunkify": "^2.1.2"
   }

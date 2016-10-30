@@ -1,4 +1,5 @@
-var cSpider  = require('./project/ctrip/spider');
+//var cSpider  = require('./project/ctrip/spider');
+var cSpider  = require('./project/movies/spider');
 var king = require('./king/index.js');
 
 var projectId = 'ctrip';
@@ -7,5 +8,5 @@ var options = {
     offset: 1,
     page: 1
 };
-
-king(cSpider, options)
+cSpider();
+//king(cSpider, options)
